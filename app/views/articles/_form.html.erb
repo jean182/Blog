@@ -11,9 +11,24 @@
 		<label for="article_title">Título</label>
 			<%= f.text_field :title, placeholder: 'Ingrese el título del articulo', class: 'form-control' %>
 	</div>
+
+	<div class="form-group">
+		<label class="custom-file">
+		Portada: <%= f.file_field :cover, class: 'custom-file-input' %>
+		<span class="custom-file-control"></span>
+		</label>
+	</div>
+
 	<div class="form-group">
 		<label for="article_body">Texto</label>
 			<%= f.text_area :body, placeholder: 'Escribe aquí el artículo', class: 'form-control', rows: '5' %>
+	</div>
+
+	<div class="form-check">
+	<label class="form-check-label" for="categories_">Categorias:</label>
+		<% @categories.each do |category| %>
+			<%= check_box_tag 'categories[]', category.id %> <%= category.name %>
+		<%end%>
 	</div>
 	<%= f.submit 'Guardar', class: 'btn btn-primary' %>
 <%end%>

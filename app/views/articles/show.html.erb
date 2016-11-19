@@ -3,6 +3,7 @@
 <p>Escrito por: <%= @article.user.email %></p>
 <p>Visitas: <%= @article.visits_count %></p>
 <%end%>
+<%= image_tag @article.cover.url()  %>
 <p><%= @article.body %></p>
 <div class="container">
 	<h2>Comentarios</h2>
