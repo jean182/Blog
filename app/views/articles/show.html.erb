@@ -4,4 +4,17 @@
 <p>Visitas: <%= @article.visits_count %></p>
 <%end%>
 <p><%= @article.body %></p>
+<div class="container">
+	<h2>Comentarios</h2>
+	<ul class="list-unstyled">
+		<% @article.comments.each do |comment| %>
+			<li>
+				<label>Usuario: <%= comment.user.email %></label>
+				<p>Comentario: <%= comment.body %> </p>
+			</li>
+		<%end%>	
+	</ul>
+	<h3>Nuevo Comentario</h3>
+	<%= render 'comments/form' %>
+</div>
 <p><%= link_to 'Editar', edit_article_path(@article) %></p>

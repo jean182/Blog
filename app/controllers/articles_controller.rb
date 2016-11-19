@@ -10,6 +10,7 @@ class ArticlesController < ApplicationController
 	def show
 		#Buscar registros en este caso por su id
 		@article.update_visits_count
+		@comment = Comment.new
 		
 	end
 	#GET /articles/new
