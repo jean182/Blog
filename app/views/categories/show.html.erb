@@ -1,8 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<h1 style="color:<%= @category.color %>;">
   <%= @category.name %>
+</h1>
+<h2>Artículos</h2>
+
+<p>
+	<% @category.articles.each do |article| %>
+		<h3> <%= link_to article.title, article %> </h3>
+		<p><%= article.body %> -<%= link_to 'Eliminar', article, method: :delete, class: "alert-link" %></p>
+	<%end%>
 </p>
 
 <p>
