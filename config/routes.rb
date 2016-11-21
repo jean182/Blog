@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   
-  resources :categories
-  devise_for :users
- resources :articles do
+  mount Ckeditor::Engine => '/ckeditor'
+  	resources :categories
+  	devise_for :users
+ 	resources :articles do
  	resources :comments, only: [:create, :destroy, :update]
  end
  #Permite realizar acciones CRUD
@@ -11,6 +12,10 @@ Rails.application.routes.draw do
  
 
  root 'welcome#index'
+
+ get '/dashboard', to: 'welcome#dashboard' 
+
+ put '/articles/:id/publish', to: 'articles#publish'
 
  #http
  #	Verbos:

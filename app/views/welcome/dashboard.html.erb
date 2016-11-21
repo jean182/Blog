@@ -1,0 +1,9 @@
+<% @articles.each do |article| %>
+<h1> <%= link_to article.title, article %> </h1>
+<p><%= article.body %> -<%= link_to 'Eliminar', article, method: :delete, class: "alert-link" %>
+<% if article.may_publish? %>
+
+<%= link_to 'Publish', "/articles/#{article.id}/publish", method: :put, class: "alert-link" %>
+	<%end%>
+</p>
+<%end%>
